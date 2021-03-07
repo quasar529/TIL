@@ -2,4 +2,5 @@
 
 * [Home](/)
 * [Rules](intro.md)
-* [ML](ML/Cousera.md)
+- ML
+    - [Deep Learning](ML/Cousera.md)
