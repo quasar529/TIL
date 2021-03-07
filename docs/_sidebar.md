@@ -2,4 +2,4 @@
 
 * [Home](/)
 * [Rules](intro.md)
-* [ML](Cousera.md)
+* [ML](ML/Cousera.md)
