@@ -1,4 +1,4 @@
-<!-- docs/_sidebar.md -->
+<!-- docs/ML/_sidebar.md -->
 
 * [Home](/)
 * [Rules](intro.md)
