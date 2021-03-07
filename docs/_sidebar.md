@@ -1,4 +1,5 @@
 <!-- docs/_sidebar.md -->
 
 * [Home](/)
-* [Intro](intro.md)
+* [Rules](intro.md)
+* [ML](Cousera.md)
