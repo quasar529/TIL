@@ -15,25 +15,6 @@
     <div id="app"></div>
     <script>
       window.$docsify = {
-        loadSidebar: true,
-        alias: {
-          "/.*/_sidebar.md": "/_sidebar.md",
-        },
-        auto2top: true,
-        subMaxLevel: 2,
-      };
-    </script>
-    <script>
-      window.$docsify = {
-        search: "auto", // default
-
-        search: [
-          "/", // => /README.md
-          "/guide", // => /guide.md
-          "/get-started", // => /get-started.md
-          "/zh-cn/", // => /zh-cn/README.md
-        ],
-
         // complete configuration parameters
         search: {
           maxAge: 86400000, // Expiration time, the default one day
@@ -74,6 +55,12 @@
           // the matching substring will be used to identify the index
           pathNamespaces: /^(\/(zh-cn|ru-ru))?(\/(v1|v2))?/,
         },
+        loadSidebar: true,
+        alias: {
+          "/.*/_sidebar.md": "/_sidebar.md",
+        },
+        auto2top: true,
+        subMaxLevel: 2,
       };
     </script>
     <!-- Docsify v4 -->
