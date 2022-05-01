@@ -1,11 +1,14 @@
-list = {}
-for i in range(4):
-    name = input("name: ")
-    age = int(input("age: "))
-    shoesize=int(input("shoe size: "))
-    list[name] ={"Age": age, "ShoeSize":shoesize}
-name = input("Enter a name you want to delete: ")
-del list[name]
-
-for name in list:
-    print(name, list[name])
+file = open("Names.txt", 'r')
+print(file.read())
+file.close()
+file = open("Names.txt", 'r')
+user = input("Enter a name of them: ")
+user = user+'\n'
+for row in file:
+    if row != user:
+        file = open("Names2.txt", 'a')
+        file.write(row)
+        file.close()
+file = open("Names2.txt", 'r')
+print(file.read())
+file.close()
