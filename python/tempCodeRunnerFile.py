@@ -1,34 +1,42 @@
 
-import random
+names=[]
+def add_name():
+    name= input("NAME:? ")
+    names.append(name)
+    return names
 
-def twoNums():
-    sum = random.randint(5,20) + random.randint(5,20)
-    user = int(input("sum of two nums?"))
-    data_tuple = (user,sum)
-    return data_tuple
+def show_name():
+    x=0
+    for name in names:
+        print(x,' ',name)
+        x+=1
+    print('\n')
 
-def subtraction():
-    ans=random.randint(25,50) - random.randint(1,25)
-    user = int(input("your answer? "))
-    data_tuple = (user,ans)
-    return data_tuple
+def modify_name():
+    show_name()
+    user =int(input("Which name you want to modify? choose index: "))
+    newName = input("New Name: ")
+    names[user] =newName
+    return names
 
-def checkFunc(user,ans):
-    if user==ans:
-        print("Correct")
-    else:
-        print("Incorrect",ans)
-    
-def user_choice():
-    user = int(input("1) Addtion\n2) Subtraction\nEnter 1 or 2: "))
-    if user == 1:
-        userans,realans=twoNums()
-        checkFunc(userans,realans)
-    elif user==2:
-        userans,realans=subtraction()
-        checkFunc(userans,realans)
-    else:
-        print("Your input is wrong")
+def del_name():
+    show_name()
+    user =int(input("Which name you want to delete? choose index: "))
+    del names[user]
+    return names
+
 def main():
-    user_choice()
+    while 1:    
+        user = int(input("Menu\n1)add\n2)modify\n3)delete\n4)show\n5)END\n"))
+        if user==1:
+            add_name()
+        elif user==2:
+            modify_name()
+        elif user ==3:
+            del_name()
+        elif user==4:
+            show_name()
+        elif user ==5:
+            break
+        
 main()
