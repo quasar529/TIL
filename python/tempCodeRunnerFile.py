@@ -1,42 +1,57 @@
 
-names=[]
-def add_name():
-    name= input("NAME:? ")
-    names.append(name)
-    return names
+import csv
+def addToFile():
+    file = open("Salaries.csv", 'a')
+    name = input("Enter a name: ")
+    salary = int(input("Salary: "))
+    newRecord = name+','+str(salary)+'\n'
 
-def show_name():
-    x=0
-    for name in names:
-        print(x,' ',name)
-        x+=1
-    print('\n')
+    file.write(str(newRecord))
+    file.close()
 
-def modify_name():
-    show_name()
-    user =int(input("Which name you want to modify? choose index: "))
-    newName = input("New Name: ")
-    names[user] =newName
-    return names
 
-def del_name():
-    show_name()
-    user =int(input("Which name you want to delete? choose index: "))
-    del names[user]
-    return names
+def viewAllRecords():
+    file = open("Salaries.csv", 'r')
+    for row in file:
+        print(row)
+    file.close()
+
+
+def deleteARecord():
+    file = open("Salaries.csv", 'r')
+    tmp = []
+    for row in file:
+        tmp.append(row)
+    file.close()
+
+    x = 0
+    for row in tmp:
+        print(x, ' ', row)
+        x += 1
+    delrcd = int(input("Choose a row to delete: "))
+    del tmp[delrcd]
+
+    file = open("Salaries.csv", 'w')
+    for row in tmp:
+        file.write(row)
+
+    file.close()
+
 
 def main():
-    while 1:    
-        user = int(input("Menu\n1)add\n2)modify\n3)delete\n4)show\n5)END\n"))
-        if user==1:
-            add_name()
-        elif user==2:
-            modify_name()
-        elif user ==3:
-            del_name()
-        elif user==4:
-            show_name()
-        elif user ==5:
+    while 1:
+        user = (input(
+            "1)Add to file\n2)View all records\n3)Delete a Record\n4)Quit program\n\nEnter the number of your selection: "))
+        if user == '4':
             break
-        
+        elif user == '1':
+            addToFile()
+        elif user == '2':
+            viewAllRecords()
+        elif user == '3':
+            deleteARecord()
+        else:
+            print("Wrong input, try again")
+
+
 main()
