@@ -1,57 +1,57 @@
 
+from tkinter import *
 import csv
-def addToFile():
-    file = open("Salaries.csv", 'a')
-    name = input("Enter a name: ")
-    salary = int(input("Salary: "))
-    newRecord = name+','+str(salary)+'\n'
 
+def add_file():
+    file = open("ages.csv",'a')
+    name= namebox.get()
+    age=agebox.get()
+    newRecord = name+','+age+'\n'
     file.write(str(newRecord))
     file.close()
+    namebox.delete(0,END)
+    agebox.delete(0,END)
+    namebox.focus()
 
-
-def viewAllRecords():
-    file = open("Salaries.csv", 'r')
-    for row in file:
-        print(row)
-    file.close()
-
-
-def deleteARecord():
-    file = open("Salaries.csv", 'r')
-    tmp = []
+def read_file():
+    name_list.delete(0,END)
+    
+    file=open("ages.csv",'r')
+    tmp=[]
     for row in file:
         tmp.append(row)
-    file.close()
+    for data in tmp:
+        name_list.insert(END,data)
 
-    x = 0
-    for row in tmp:
-        print(x, ' ', row)
-        x += 1
-    delrcd = int(input("Choose a row to delete: "))
-    del tmp[delrcd]
+window=Tk()
+window.title("Name List")
+window.geometry("450x200")
 
-    file = open("Salaries.csv", 'w')
-    for row in tmp:
-        file.write(row)
+label1=Label(text="Enter a name")
+label1.place(x=20,y=20)
 
-    file.close()
+namebox = Entry(text="")
+namebox.place(x=120,y=20,width=100,height=25)
+namebox["justify"] ="left"
+namebox.focus()
 
+label2 = Label(text="Enter a age")
+label2.place(x=20,y=50)
 
-def main():
-    while 1:
-        user = (input(
-            "1)Add to file\n2)View all records\n3)Delete a Record\n4)Quit program\n\nEnter the number of your selection: "))
-        if user == '4':
-            break
-        elif user == '1':
-            addToFile()
-        elif user == '2':
-            viewAllRecords()
-        elif user == '3':
-            deleteARecord()
-        else:
-            print("Wrong input, try again")
+agebox = Entry(text="")
+agebox.place(x=120,y=50,width=100,height=25)
+agebox["justify"]="left"
 
+button1 = Button(text = "Add to file",command=add_file)
+button1.place(x=250,y=20,width=100,height=25)
 
-main()
+button2=Button(text="Read a list",command=read_file)
+button2.place(x=250,y=50,width=100,height=25)
+
+label3=Label(text="Saved names: ")
+label3.place(x=250,y=80)
+
+name_list = Listbox()
+name_list.place(x=120,y=80,width=230,height=100)
+
+window.mainloop()
